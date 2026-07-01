@@ -23,3 +23,21 @@ fn check_light(light: TrafficLight) {
     // We'll learn how to check which variant it is later
     println!("Light is working!");
 }
+
+enum Message {
+    Quit,                              // No data
+    Move { x: i32, y: i32 },          // Named fields (like a struct)
+    Write(String),                     // Single String
+    ChangeColor(i32, i32, i32),       // Three i32 values
+}
+
+fn main() {
+    let msg1 = Message::Quit;
+    let msg2 = Message::Move { x: 10, y: 20 };
+    let msg3 = Message::Write(String::from("Hello!"));
+    let msg4 = Message::ChangeColor(255, 0, 0);
+    
+    // All these different message types are the SAME type: Message
+    // This means we can put them all in the same collection!
+    let messages = vec![msg1, msg2, msg3, msg4];
+}
